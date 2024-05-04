@@ -1,5 +1,6 @@
 import cors, { CorsOptions } from "cors";
 import express, { Express } from "express";
+import bodyParser from "body-parser"
 
 export async function createServer(): Promise<Express> {
 
@@ -14,5 +15,9 @@ export async function createServer(): Promise<Express> {
 
   // setting up cors
   server.use(cors(corsOption));
+
+  // setting up body parser
+  server.use(bodyParser.json());
+  
   return server;
 }
