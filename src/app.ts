@@ -3,9 +3,10 @@ import express, { Express } from "express";
 import bodyParser from "body-parser";
 import spec from "@hk-boilerplate/demyst-todo-spec/dist/spec";
 import YAML from "yamljs";
-import { summarise } from "swagger-routes-express";
+import { connector, summarise } from "swagger-routes-express";
 import * as OpenApiValidator from "express-openapi-validator";
 import { OpenApiValidatorOpts } from "express-openapi-validator/dist/openapi.validator";
+import * as api from "./api";
 
 export async function createServer(): Promise<Express> {
   // cors config
@@ -54,6 +55,17 @@ export async function createServer(): Promise<Express> {
       });
     }
   );
+
+  // route middleware
+  const connect = connector(api as any, spec, {
+    onCreateRoute: (method: string, descriptor: any[]) => {
+      console.log(
+        `${method}: ${descriptor[0]} : ${(descriptor[1] as any).name}`
+      );
+    },
+  });
+
+  connect(server);
 
   // setting up cors
   server.use(cors(corsOption));
