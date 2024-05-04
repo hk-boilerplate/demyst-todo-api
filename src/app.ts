@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import spec from "@hk-boilerplate/demyst-todo-spec/dist/spec";
 import YAML from "yamljs";
 import { summarise } from "swagger-routes-express";
+import * as OpenApiValidator from "express-openapi-validator";
+import { OpenApiValidatorOpts } from "express-openapi-validator/dist/openapi.validator";
 
 export async function createServer(): Promise<Express> {
   // cors config
@@ -24,6 +26,34 @@ export async function createServer(): Promise<Express> {
   console.info(apiSummary);
 
   const server = await express();
+
+  // setting up api validator
+  const validatorOptions: OpenApiValidatorOpts = {
+    coerceTypes: true,
+    apiSpec: yamlSpecFile,
+    validateRequests: true,
+    validateResponses: true,
+  };
+
+  // setting up middleware to validate request and responses based on schema defined in open api spec
+  server.use(OpenApiValidator.middleware(validatorOptions));
+
+  server.use(
+    (
+      err: any,
+      _req: express.Request,
+      res: express.Response,
+      _next: express.NextFunction
+    ) => {
+      console.log(err);
+      // @ts-ignore
+      res.status(err.status).json({
+        type: "request_validation",
+        message: err.message,
+        errors: err.errors,
+      });
+    }
+  );
 
   // setting up cors
   server.use(cors(corsOption));
