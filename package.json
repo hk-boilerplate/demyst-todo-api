@@ -1,0 +1,19 @@
+{
+  "name": "@hk-boilerplate/demyst-todo-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hk-boilerplate/demyst-todo-api.git"
+  },
+  "author": "hariraghupathy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hk-boilerplate/demyst-todo-api/issues"
+  },
+  "homepage": "https://github.com/hk-boilerplate/demyst-todo-api#readme"
+}
