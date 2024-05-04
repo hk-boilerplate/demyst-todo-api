@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node build/index.js",
+    "update:contract": "npm install -g npm-check-updates && npx ncu -u @hk-boilerplate/*"
   },
   "repository": {
     "type": "git",
