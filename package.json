@@ -11,10 +11,12 @@
     "url": "git+https://github.com/hk-boilerplate/demyst-todo-api.git"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13"
+    "@types/express": "^4.17.13",
+    "@types/cors": "^2.8.13"
   },
   "author": "hariraghupathy",
   "license": "ISC",
