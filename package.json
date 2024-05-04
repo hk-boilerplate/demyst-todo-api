@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hk-boilerplate/demyst-todo-api.git"
+    "url": "git@github.com:hk-boilerplate/demyst-todo-api.git"
   },
   "dependencies": {
     "express": "^4.17.3",

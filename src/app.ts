@@ -11,6 +11,8 @@ export async function createServer(): Promise<Express> {
     optionsSuccessStatus: 200,
   };
 
+  // reading yaml file from private npm package - api contract
+
   const server = await express();
 
   // setting up cors
@@ -18,6 +20,6 @@ export async function createServer(): Promise<Express> {
 
   // setting up body parser
   server.use(bodyParser.json());
-  
+
   return server;
 }
