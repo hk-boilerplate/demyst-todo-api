@@ -23,7 +23,6 @@ describe("todoHandler", () => {
   });
 
   test("should return todo when service call is successful", async () => {
-    // Mock the implementation of getTodoById function
     (service.getTodoById as jest.Mock).mockResolvedValue({
       id: 1,
       title: "Task 1",
@@ -56,7 +55,6 @@ describe("todoHandler", () => {
   });
 
   test("should return 500 error when an internal server error occurs", async () => {
-    // Mock the implementation of getTodoById function to throw an error
     (service.getTodoById as jest.Mock).mockRejectedValue(InternalServerError);
 
     await getTodoById(mockRequest as any, mockResponse as any);
