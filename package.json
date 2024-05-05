@@ -5,7 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "start": "tsc && node build/index.js",
-    "update:contract": "npm install -g npm-check-updates && npx ncu -u @hk-boilerplate/*"
+    "update:contract": "npm install -g npm-check-updates && npx ncu -u @hk-boilerplate/*",
+    "test": "npx jest",
+    "coverage": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
