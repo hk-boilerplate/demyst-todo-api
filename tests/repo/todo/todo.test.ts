@@ -1,5 +1,5 @@
-import { NotFound } from "../../src/api/constants/errors";
-import { getTodoById } from "../../src/api/repo/todo";
+import { NotFound } from "../../../src/api/constants/errors";
+import { getTodoById } from "../../../src/api/repo/todo";
 
 describe("getTodoById repo", () => {
   afterEach(() => {

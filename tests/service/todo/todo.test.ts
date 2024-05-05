@@ -1,6 +1,6 @@
-import { Todo } from "../../src/api/models/todo";
-import * as repo from "../../src/api/repo/todo";
-import { getTodoById } from "../../src/api/service/todo";
+import { Todo } from "../../../src/api/models/todo";
+import * as repo from "../../../src/api/repo/todo";
+import { getTodoById } from "../../../src/api/service/todo";
 
 jest.mock('../../src/api/repo/todo');
 
