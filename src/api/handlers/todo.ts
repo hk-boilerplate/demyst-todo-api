@@ -24,7 +24,7 @@ export async function getTodoById(
     } else {
       return res
         .status(500)
-        .json(createErrorResponse(500, InternalServerError.message, err));
+        .json(createErrorResponse(500, InternalServerError.message, errMessage));
     }
   }
 }
