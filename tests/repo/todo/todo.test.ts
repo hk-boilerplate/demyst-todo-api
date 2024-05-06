@@ -6,18 +6,24 @@ describe("getTodoById repo", () => {
     jest.clearAllMocks();
   });
 
-  test("should return todo when todoId is found", async () => {
-    const todoId = 1;
-    const mockTodo = { id: 1, title: "Task 1", status: true };
+  test("should return todo when even todoId is found", async () => {
+    const evenTodoId = 2;
+    const mockEvenTodo = { id: 2, title: "Task 2", status: false };
 
-    const result = await getTodoById(todoId);
+    const result = await getTodoById(evenTodoId);
 
-    expect(result).toEqual(mockTodo);
+    expect(result).toEqual(mockEvenTodo);
+  });
+
+  test("should throw NotFound error when odd todoId is found", async () => {
+    const oddTodoId = 1;
+
+    await expect(getTodoById(oddTodoId)).rejects.toThrow(NotFound);
   });
 
   test("should throw NotFound error when todoId is not found", async () => {
-    const todoId = 99;
+    const nonExistentTodoId = 99;
 
-    await expect(getTodoById(todoId)).rejects.toThrow(NotFound);
+    await expect(getTodoById(nonExistentTodoId)).rejects.toThrow(NotFound);
   });
 });
