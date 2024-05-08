@@ -15,10 +15,13 @@
     "url": "git@github.com:hk-boilerplate/demyst-todo-api.git"
   },
   "dependencies": {
-    "@hk-boilerplate/demyst-todo-spec": "^1.0.89531116921",
+    "@hk-boilerplate/demyst-todo-spec": "^1.0.89975489201",
+    "axios": "^1.6.8",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.17.3",
     "express-openapi-validator": "^4.13.5",
+    "node-fetch": "^3.3.2",
     "swagger-routes-express": "^3.3.1",
     "yamljs": "^0.3.0"
   },
